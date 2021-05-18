@@ -68,3 +68,44 @@ def move(snake, k, snakegame):
         snake[0].move(0,-15)
 
     snake[0].draw(snakegame)
+
+
+def checkBounds(snake):
+    if (snake[0].getCenter().getX() > 540 or
+        snake[0].getCenter().getX() < 53 or
+        snake[0].getCenter().getY() < 59 or
+        snake[0].getCenter().getY() > 546):
+        return True
+
+    elif (snake[0].getCenter().getX() == Apple.getCenter().getX() and
+          snake[0].getCenter().getY() == Apple.getCenter().getY()):
+        newApple()
+        grow(snake)
+        
+        
+    for j in range(3, size):
+        if (snake[0].getCenter().getX() == snake[j].getCenter().getX() and
+            snake[0].getCenter().getY() == snake[j].getCenter().getY()):
+            return True
+
+
+def grow(snake):
+
+   snake.append(snake[size-3].clone())
+   snake.append(snake[size-3].clone())
+    
+def newApple():
+    
+    dx = (randint(0, 31))*15
+    dy = (randint(0, 24))*15
+    valid = True
+    
+    global Apple
+    try :
+        Apple.undraw()  
+    except :
+        pass
+    Apple = Rectangle(Point(60+dx, 172+dy),Point(74+dx, 186+dy))
+    Apple.setFill("blue")
+    Apple.setOutline("darkblue")
+    Apple.draw(snakegame)
