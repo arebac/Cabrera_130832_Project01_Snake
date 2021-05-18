@@ -109,3 +109,42 @@ def newApple():
     Apple.setFill("blue")
     Apple.setOutline("darkblue")
     Apple.draw(snakegame)
+
+
+
+def main():
+
+    global Lost
+    Lost=False
+    global Direction
+    Direction=1
+
+    asnake=createsnake()
+    newApple()
+    
+  
+    while(Lost!=True):
+        k=snakegame.checkKey()
+        time.sleep(0.10)
+        if checkBounds(asnake) == True:
+            Lost = True
+            #gameOver()
+        elif ((k == "d" or k == "Right") and Direction!=3):
+            Direction = 1
+            move(asnake, k, snakegame)
+        elif ((k == "s" or k == "Down") and Direction!=4):
+            Direction = 2
+            move(asnake,k, snakegame)
+        elif ((k == "a" or k == "Left") and Direction!=1):
+            Direction  = 3
+            move(asnake, k, snakegame)
+        elif ((k == "w" or k == "Up") and Direction!=2):
+            Direction  = 4
+            move(asnake, k, snakegame)
+        else:
+            move(asnake, k, snakegame)
+   
+
+
+    input("press enter to quit: ")
+main() 
