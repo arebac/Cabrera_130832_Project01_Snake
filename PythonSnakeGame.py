@@ -48,7 +48,8 @@ class Snake():
         tempsnake.size = 4
         for i in range(tempsnake.size):
             tempsnake.snake[i] = Rectangle(Point(300-(i*15), 247),Point(300-(i*15)+14, 261))
-            tempsnake.snake[i].setFill("red")
+            tempsnake.snake[i].setFill("black")
+            tempsnake.snake[i].setOutline('red')
             tempsnake.snake[i].draw(snakegame)
 
 
@@ -68,7 +69,7 @@ class Snake():
         tempsnake.snake[0] = tempsnake.snake[1].clone()
         if Direction == 1:
             tempsnake.snake[0].move(15,0)
-        elif tempsnake == 2:
+        elif Direction == 2:
             tempsnake.snake[0].move(0,15)
         elif Direction == 3:
             tempsnake.snake[0].move(-15,0)
@@ -76,6 +77,8 @@ class Snake():
             tempsnake.snake[0].move(0,-15)
 
         tempsnake.snake[0].draw(win)
+
+
 
     def checkBounds(tempsnake):
         if (tempsnake.snake[0].getCenter().getX() > 545 or
