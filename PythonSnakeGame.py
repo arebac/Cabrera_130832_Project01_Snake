@@ -81,10 +81,10 @@ class Snake():
 
 
     def checkBounds(tempsnake):
-        if (tempsnake.snake[0].getCenter().getX() > 545 or
-            tempsnake.snake[0].getCenter().getX() < 60 or
-            tempsnake.snake[0].getCenter().getY() < 175 or
-            tempsnake.snake[0].getCenter().getY() > 545):
+        if (tempsnake.snake[0].getCenter().getX() > 540 or
+            tempsnake.snake[0].getCenter().getX() < 53 or
+            tempsnake.snake[0].getCenter().getY() < 59 or
+            tempsnake.snake[0].getCenter().getY() > 546):
             return True
 
         elif (tempsnake.snake[0].getCenter().getX() == Apple.getCenter().getX() and
