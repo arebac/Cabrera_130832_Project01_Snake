@@ -1,34 +1,4 @@
-Skip to content
-Search or jump to…
 
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@arebac 
-arebac
-/
-Cabrera_130832_Project01_Snake
-1
-00
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-Cabrera_130832_Project01_Snake/PythonSnakeGame.py /
-@arebac
-arebac Snake game class
-Latest commit 8ed2d1e 4 minutes ago
- History
- 1 contributor
-148 lines (117 sloc)  4.15 KB
-  
 from graphics import *
 from random import *
 
@@ -65,21 +35,6 @@ createhabitat(snakegame)
 instructions(snakegame)
 
 
-def newApple():
-    
-    dx = (randint(0, 31))*15
-    dy = (randint(0, 24))*15
-    valid = True
-    
-    global Apple
-    try :
-        Apple.undraw()  
-    except :
-        pass
-    Apple = Rectangle(Point(60+dx, 172+dy),Point(74+dx, 186+dy))
-    Apple.setFill("blue")
-    Apple.setOutline("darkblue")
-    Apple.draw(snakegame)
 
 
 class Snake():
@@ -141,6 +96,23 @@ class Snake():
                 return True
 
 
+
+def newApple():
+    
+    dx = (randint(0, 31))*15
+    dy = (randint(0, 24))*15
+    valid = True
+    
+    global Apple
+    try :
+        Apple.undraw()  
+    except :
+        pass
+    Apple = Rectangle(Point(60+dx, 172+dy),Point(74+dx, 186+dy))
+    Apple.setFill("blue")
+    Apple.setOutline("darkblue")
+    Apple.draw(snakegame)
+
 def main():
 
     global Lost
@@ -148,30 +120,30 @@ def main():
     global Direction
     Direction=1
 
-    asnake=Snake()
-    asnake.createsnake()
+    razer=Snake()
+    razer.createsnake()
     newApple()
     
   
     while(Lost!=True):
         k=snakegame.checkKey()
         time.sleep(0.10)
-        if asnake.checkBounds() == True:
-            asnake.Lost = True
+        if razer.checkBounds() == True:
+            Lost = True
         elif ((k == "d" or k == "Right") and Direction!=3):
             Direction = 1
-            asnake.move( k, snakegame)
+            razer.move( k, snakegame)
         elif ((k == "s" or k == "Down") and Direction!=4):
             Direction = 2
-            asnake.move(k, snakegame)
+            razer.move(k, snakegame)
         elif ((k == "a" or k == "Left") and Direction!=1):
             Direction  = 3
-            asnake.move(k, snakegame)
+            razer.move(k, snakegame)
         elif ((k == "w" or k == "Up") and Direction!=2):
             Direction  = 4
-            asnake.move(k, snakegame)
+            razer.move(k, snakegame)
         else:
-            asnake.move(k, snakegame)
+            razer.move(k, snakegame)
    
 
 
