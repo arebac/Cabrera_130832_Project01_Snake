@@ -1,3 +1,34 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@arebac 
+arebac
+/
+Cabrera_130832_Project01_Snake
+1
+00
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+Cabrera_130832_Project01_Snake/PythonSnakeGame.py /
+@arebac
+arebac Snake game class
+Latest commit 8ed2d1e 4 minutes ago
+ History
+ 1 contributor
+148 lines (117 sloc)  4.15 KB
+  
 from graphics import *
 from random import *
 
@@ -62,7 +93,7 @@ class Snake():
         tempsnake.size = 4
         for i in range(tempsnake.size):
             tempsnake.snake[i] = Rectangle(Point(300-(i*15), 247),Point(300-(i*15)+14, 261))
-            tempsnake.snake[i].setFill("cyan")
+            tempsnake.snake[i].setFill("red")
             tempsnake.snake[i].draw(snakegame)
 
 
